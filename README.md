@@ -16,14 +16,17 @@ Desenvolver um site simples, tanto para quem for acessar em busca de informaçõ
 
 ### Etapas do Projeto
 
-* <a href='https://escolaargeu.netlify.app/' target="_blank">Página de Home</a>
-* Página de Login com:
+* <a href='https://escolaargeu.netlify.app/' target="_blank">Página de Home</a>, com:
+  * Barra de ferramentas
   * Banner para fotos
   * Espaço para avisos
   * Espaço para funcionários
+* Página administrativa, com:
+  * Opção de criar, mudar ou deletar avisos
+  * Opção de adicionar, deletar ou alterar funcionários.
 * Desenvolvimento do Banco de Dados
 * Api de listagem, cadastro, atualização e deletar professores e avisos
 * A Api e o banco de dados Mysql estão hospedados no Heroku
 
 
-O projeto ainda está em desenvolvimento, outras etapas podem ser inseridas, tal como novas funcionalidades.
+O projeto ainda está em desenvolvimento, outras etapas podem ser inseridas, tal como novas funcionalidades. As imagens usadas ainda são meramente ilustrativas.
