@@ -10,7 +10,7 @@ body{
 }
 
 .container-nav{
-    background-color: rgb(2, 75, 158);
+
 }
 
 .navbar{
@@ -20,6 +20,10 @@ body{
     height: 10%;
     top: 0;
     z-index: 2;
+}
+
+.navbar-nav p{
+    margin: 0px;
 }
 
 .nav-link:hover{
