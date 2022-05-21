@@ -16,7 +16,7 @@ Desenvolver um site simples, tanto para quem for acessar em busca de informaçõ
 
 ### Etapas do Projeto
 
-* <a href='https://orloke.github.io/escola-argeu/' target="_blank">Página de Home</a>
+* <a href='https://escolaargeu.netlify.app/' target="_blank">Página de Home</a>
 * Página de Login
 * Desenvolvimento do Banco de Dados
 * Api de listagem, cadastro, atualização e deletar professores e avisos
