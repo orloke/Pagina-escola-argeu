@@ -20,6 +20,7 @@ Desenvolver um site simples, tanto para quem for acessar em busca de informaçõ
 * Página de Login
 * Desenvolvimento do Banco de Dados
 * Api de listagem, cadastro, atualização e deletar professores e avisos
+* A Api e o banco de dados Mysql estão hospedados no Heroku
 
 
 O projeto ainda está em desenvolvimento, outras etapas podem ser inseridas, tal como novas funcionalidades.
