@@ -2,7 +2,7 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-# escola-argeu
+# Escola Argeu
 
 Projeto voluntário para Escola Estadual Argeu Augusto de Moraes.
 
@@ -16,10 +16,11 @@ Desenvolver um site simples, tanto para quem for acessar em busca de informaçõ
 
 ### Etapas do Projeto
 
-* <a href='https://orloke.github.io/escola-argeu/' target="_blank">Página de Home</a>
+* <a href='https://escolaargeu.netlify.app/' target="_blank">Página de Home</a>
 * Página de Login
 * Desenvolvimento do Banco de Dados
 * Api de listagem, cadastro, atualização e deletar professores e avisos
+* A Api e o banco de dados Mysql estão hospedados no Heroku
 
 
 O projeto ainda está em desenvolvimento, outras etapas podem ser inseridas, tal como novas funcionalidades.
