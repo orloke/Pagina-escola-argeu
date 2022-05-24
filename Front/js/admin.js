@@ -77,8 +77,10 @@ form_cadastrar.onsubmit = async (e) =>{
         }
 
         const resposta = await fetch(BASE_URL,option)
+        const respostaJson = await resposta.json()
         if(resposta.status != '201'){
-            return alert('Ocorreu algum erro. ' + await resposta.json())
+            console.log(respostaJson);
+            return alert('Ocorreu algum erro: ' + respostaJson.details.body[0].message)
         }
         alert('Funcionário cadastrado!')
         window.location.href = 'admin.html'
