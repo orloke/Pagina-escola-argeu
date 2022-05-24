@@ -12,7 +12,7 @@ var Listar = async () => {
     const resposta = await fetch(`${BASE_URL}`)
     const resJson = await resposta.json()
     loadFuncionarios.style.display = 'none'
-    resJson.forEach(element => {
+    await resJson.forEach(element => {
         rowFuncionarios.innerHTML+=
         `<div class="col">
         <div class="card text-center" >
@@ -35,20 +35,22 @@ var Listar = async () => {
                     <form class = 'p-3'>
                         <div class="">
                             <label for="exampleInputEmail1" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nome" value = ${element.nome}>
+                            <input type="text" class="form-control atualizar_nome${element.id}" id="exampleInputEmail1" aria-describedby="nome" value = ${element.nome}>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Cargo</label>
-                            <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="cargo" value = ${element.cargo}>
+                            <input type="text" class="form-control atualizar_cargo${element.id}" id="exampleInputEmail2" aria-describedby="cargo" value = ${element.cargo}>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Descrição</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">${element.descricao}</textarea>
+                            <textarea class="form-control atualizar_descricao${element.id}" id="exampleFormControlTextarea1" rows="3">${element.descricao}</textarea>
 
                         </div>
-                        <button class="btn btn-primary">Atualizar</button>
-                        <button class="btn btn-danger">Deletar</button>
                     </form>
+                    <div class = "p-3">
+                        <button class="btn btn-primary" onclick = 'atualizar(${element.id})'>Atualizar</button>
+                        <button class="btn btn-danger" onclick = 'deletar(${element.id})'>Deletar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,7 +81,64 @@ form_cadastrar.onsubmit = async (e) =>{
             return alert('Ocorreu algum erro. ' + await resposta.json())
         }
         alert('Funcionário cadastrado!')
-        window.reload
+        window.location.href = 'admin.html'
+
+    } catch (error) {
+        alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+error) 
+    }
+}
+
+Listar()
+
+
+const atualizar = async (id) => {
+    let atualizar_nome = document.querySelector('.atualizar_nome'+id).value
+    let atualizar_cargo = document.querySelector('.atualizar_cargo'+id).value
+    let atualizar_descricao = document.querySelector('.atualizar_descricao'+id).value
+
+    try {
+        dataraw = {
+            'nome': atualizar_nome,
+            'descricao': atualizar_descricao,
+            'cargo': atualizar_cargo
+        }
+
+        const option = {
+            method: 'PUT',
+            body: JSON.stringify(dataraw),
+            headers:{
+                'Content-Type': 'application/json',
+            },
+        }
+
+        const resposta = await fetch(`${BASE_URL}/${id}`,option)
+        if(resposta.status != '201'){
+            return alert('Ocorreu algum erro. ' + await resposta.json())
+        }
+        alert('Funcionário Atualizado!')
+
+    } catch (error) {
+        alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+error) 
+    }
+}
+
+const deletar = async (id) => {
+
+    try {
+        const option = {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+        }
+
+        const resposta = await fetch(`${BASE_URL}/${id}`,option)
+        console.log(await resposta.json());
+        if(resposta.status != '200'){
+            return alert('Ocorreu algum erro. ' + await resposta.json())
+        }
+        alert('Funcionário deletado!')
+        window.location.href = 'admin.html'
 
     } catch (error) {
         alert('Algum erro está ocorrendo. Informe o administrador do site \nErro: '+error) 
@@ -87,4 +146,3 @@ form_cadastrar.onsubmit = async (e) =>{
 }
 
 
-Listar()
