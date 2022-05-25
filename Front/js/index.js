@@ -1,8 +1,10 @@
 const BASE_URL = 'https://api-escola-argeu.herokuapp.com'
 const rowFuncionarios = document.querySelector('.row-funcionarios')
-const loadFuncionarios = document.querySelector('.c-loader')
+const row_avisos = document.querySelector('.row_avisos')
+const loadFuncionarios = document.querySelector('.funcionarios_loader')
+const loadAvisos = document.querySelector('.avisos_loader')
 
-var Listar = async () => {
+var ListarProfessores = async () => {
     const resposta = await fetch(`${BASE_URL}/professores`)
     const resJson = await resposta.json()
     loadFuncionarios.style.display = 'none'
@@ -36,5 +38,22 @@ var Listar = async () => {
     });
 }
 
+var ListarAvisos = async () => {
+    const resposta = await fetch(`${BASE_URL}/avisos`)
+    const resJson = await resposta.json()
+    loadAvisos.style.display = 'none'
+    resJson.forEach(element => {
+        row_avisos.innerHTML+=
+        `<div class="col">
+            <div class="card h-100 text-bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">${element.titulo}</h5>
+                    <p class="card-text">${element.descricao}</p>
+                </div>
+            </div>
+        </div>`
+    });
+}
 
-Listar()
+ListarProfessores()
+ListarAvisos()
